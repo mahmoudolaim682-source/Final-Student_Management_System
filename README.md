@@ -170,5 +170,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 📧 Contact
 
 **Project Maintainer**: Your Name  
-**Email**: your.email@example.com  
-**Project Link**: [https://github.com/yourusername/student-management-system](https://github.com/yourusername/student-management-system)
+**Email**: mahmoudolaim682@gmail.com  
+**Project Link**: [https://github.com/Mahmoud/student-management-system](https://github.com/Mahmoud/student-management-system)
