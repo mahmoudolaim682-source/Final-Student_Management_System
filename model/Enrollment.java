@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Objects;
-
 public class Enrollment {
     private Student student;
     private Course course;
@@ -30,21 +28,6 @@ public class Enrollment {
             throw new IllegalArgumentException("Error: Grade must be between (0-100)");
         }
         this.grade = grade;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o)
-            return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        Enrollment that = (Enrollment) o;
-        return Objects.equals(student, that.student) && Objects.equals(course, that.course);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(student, course);
     }
 
     @Override

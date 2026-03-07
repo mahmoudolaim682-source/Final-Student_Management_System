@@ -3,8 +3,13 @@ package main;
 import model.Course;
 import model.Enrollment;
 import model.Student;
+import repository.ICourseRepository;
+import repository.IStudentRepository;
 import repository.CourseRepository;
 import repository.StudentRepository;
+import service.ICourseService;
+import service.IEnrollmentService;
+import service.IStudentService;
 import service.CourseService;
 import service.EnrollmentService;
 import service.StudentService;
@@ -15,11 +20,11 @@ import java.util.List;
 
 public class Main {
     private static final String DATA_FILE = "school_data.csv";
-    private static final StudentRepository studentRepository = new StudentRepository();
-    private static final CourseRepository courseRepository = new CourseRepository();
-    private static final StudentService studentService = new StudentService(studentRepository);
-    private static final CourseService courseService = new CourseService(courseRepository);
-    private static final EnrollmentService enrollmentService = new EnrollmentService(studentService, courseService);
+    private static final IStudentRepository studentRepository = new StudentRepository();
+    private static final ICourseRepository courseRepository = new CourseRepository();
+    private static final IStudentService studentService = new StudentService(studentRepository);
+    private static final ICourseService courseService = new CourseService(courseRepository);
+    private static final IEnrollmentService enrollmentService = new EnrollmentService(studentService, courseService);
     private static final DataManager dataManager = new DataManager();
 
     private static final String[] AVAILABLE_COURSES = {

@@ -1,17 +1,18 @@
 package service;
 
 import model.Student;
-import repository.StudentRepository;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class StudentService {
-    private StudentRepository repository;
+import repository.IStudentRepository;
 
-    public StudentService(StudentRepository repository) {
+public class StudentService implements IStudentService {
+    private IStudentRepository repository;
+
+    public StudentService(IStudentRepository repository) {
         this.repository = repository;
     }
 
@@ -50,9 +51,6 @@ public class StudentService {
     public void sortByName() {
         List<Student> students = repository.getAll();
         students.sort(Comparator.comparing(Student::getName));
-        // Note: This would depend on whether the repository should store the sort state
-        // In this simple in-memory version, we can just return a sorted list if needed
-        // but here the USER logic seems to expect in-place or updated state view.
     }
 
     public void sortByGrade() {

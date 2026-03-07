@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class EnrollmentService {
-    private StudentService studentService;
-    private CourseService courseService;
+public class EnrollmentService implements IEnrollmentService {
+    private IStudentService studentService;
+    private ICourseService courseService;
 
-    public EnrollmentService(StudentService studentService, CourseService courseService) {
+    public EnrollmentService(IStudentService studentService, ICourseService courseService) {
         this.studentService = studentService;
         this.courseService = courseService;
     }

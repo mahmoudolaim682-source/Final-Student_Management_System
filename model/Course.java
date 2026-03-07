@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Objects;
-
 public class Course {
     private String courseCode;
     private String courseName;
@@ -41,19 +39,6 @@ public class Course {
     public void setCourseName(String courseName) {
         validateName(courseName);
         this.courseName = courseName.trim().toLowerCase();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Course course = (Course) o;
-        return Objects.equals(courseCode, course.courseCode);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(courseCode);
     }
 
     @Override

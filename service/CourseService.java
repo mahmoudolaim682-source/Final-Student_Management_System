@@ -1,17 +1,17 @@
 package service;
 
 import model.Course;
-import repository.CourseRepository;
+import repository.ICourseRepository;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class CourseService {
-    private CourseRepository repository;
+public class CourseService implements ICourseService {
+    private ICourseRepository repository;
 
-    public CourseService(CourseRepository repository) {
+    public CourseService(ICourseRepository repository) {
         this.repository = repository;
     }
 

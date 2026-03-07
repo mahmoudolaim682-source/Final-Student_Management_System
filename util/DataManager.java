@@ -3,8 +3,8 @@ package util;
 import model.Course;
 import model.Enrollment;
 import model.Student;
-import repository.CourseRepository;
-import repository.StudentRepository;
+import repository.ICourseRepository;
+import repository.IStudentRepository;
 
 import java.io.*;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class DataManager {
 
-    public void saveDataToFile(String filename, StudentRepository sRepo, CourseRepository cRepo) throws IOException {
+    public void saveDataToFile(String filename, IStudentRepository sRepo, ICourseRepository cRepo) throws IOException {
         try (PrintWriter writer = new PrintWriter(new FileWriter(filename))) {
             for (Course c : cRepo.getAll()) {
                 writer.printf("COURSE;%s;%s%n", c.getCourseCode(), c.getCourseName());
@@ -35,7 +35,8 @@ public class DataManager {
         }
     }
 
-    public void loadDataFromFile(String filename, StudentRepository sRepo, CourseRepository cRepo) throws IOException {
+    public void loadDataFromFile(String filename, IStudentRepository sRepo, ICourseRepository cRepo)
+            throws IOException {
         File file = new File(filename);
         if (!file.exists())
             return;

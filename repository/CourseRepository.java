@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CourseRepository {
+public class CourseRepository implements ICourseRepository {
     private List<Course> courses;
 
     public CourseRepository() {
