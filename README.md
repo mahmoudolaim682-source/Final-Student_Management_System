@@ -1,156 +1,167 @@
-# 🎓 Student Management System
+# Student Management System
 
-[![Java Version](https://img.shields.io/badge/Java-17%2B-orange.svg)](https://www.oracle.com/java/)
-[![Aesthetics](https://img.shields.io/badge/UI-Console-blue.svg)]()
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-
-A professional, feature-rich Java console application designed for educational institutions to efficiently manage student records, academic courses, and enrollment processes. Built with a clean **Multi-Layered Architecture**, this system demonstrates best practices in Java development, including SOLID principles, separation of concerns, and robust data persistence.
+A professional Java console application designed for educational institutions to efficiently manage students, courses, and enrollments. The system follows SOLID principles and implements a clean multi-layered architecture with clear separation of concerns.
 
 ---
 
-## 📖 Description
+## Project Description
 
-The **Student Management System** is a comprehensive administrative tool that streamlines the management of academic data. In modern educational environments, tracking student progress, course availability, and enrollment statuses manually is prone to errors. This system solves these issues by providing a centralized, terminal-based hub for:
+The Student Management System provides a centralized terminal-based platform for managing academic data.
 
-- **Data Integrity**: Centralized storage with validated inputs ensures information remains accurate.
-- **Efficiency**: Quick search, sort, and reporting tools save administrative time.
-- **Persistence**: Automatic CSV synchronization ensures data is never lost between sessions.
+**Key goals of the system:**
 
----
+- Maintain data integrity through validation
+- Provide fast search, sorting, and reporting
+- Ensure persistent data storage using CSV
+- Demonstrate clean architecture and OOP best practices
 
-## 🚀 Features
-
-The system is packed with functionalities mapped across four main categories:
-
-### 🎓 Student Management
-
-- **Add/Remove Students**: Registration and alumni management.
-- **Update Profiles**: Modify student names and details.
-- **Search & Filter**: Find students by name or ID instantly.
-- **Sorting**: Organize students alphabetically or by academic performance.
-- **Reporting**: View "Top Students" and "Failed Students" (Average < 50).
-
-### 📚 Course Management
-
-- **Course Catalog**: Define courses with unique codes and names.
-- **Lifecycle Management**: Add, update, or remove courses from the curriculum.
-- **Popularity Tracking**: Identify which courses have the highest enrollment.
-
-### 📝 Enrollment & Grades
-
-- **Smart Enrollment**: Link students to courses with duplicate-prevention logic.
-- **Grade Recording**: Enter and update marks (0-100) for specific subjects.
-- **GPA Calculation**: Automatically calculate a student's Weighted Grade Point Average.
-- **Unenrollment**: Handle course drops or schedule changes easily.
-
-### 📊 System Utilities
-
-- **Persistent Storage**: All data is saved to `school_data.csv`.
-- **System Statistics**: Instant dashboard showing total students, courses, and system-wide GPA.
-- **Robust Input**: Safe input handling preventing crashes on invalid data types.
+This project is ideal as a portfolio project for Java developers learning system design and architecture.
 
 ---
 
-## 🛠 Technologies Used
+## Features
 
-- **Core Engine**: Java SE 17+ (utilizing Streams, Optional, and Lambda expressions).
-- **Design Pattern**: Multi-Layered Service/Repository Pattern.
-- **Data Format**: CSV (Comma Separated Values) for lightweight storage.
-- **Build/Tools**: Standard JDK Tools (`javac`, `java`).
+### Student Management
+
+| Option | Feature | Description |
+|--------|---------|-------------|
+| 1 | Add Student | Register new students with unique ID |
+| 2 | View Students | Display all students with average grades |
+| 3 | Remove Student | Delete student records |
+| 4 | Update Student | Modify student name |
+| 11 | Search Student | Find students by name |
+| 12 | Sort Students | Sort students by name or grade |
+| 15 | View Student Courses | List courses taken by a student |
+| 21 | Top Students | Display top N performing students |
+| 24 | Failed Students | View students with average grade below 50 |
+
+### Course Management
+
+| Option | Feature | Description |
+|--------|---------|-------------|
+| 5 | Add Course | Create courses with unique code |
+| 6 | Update Course | Modify course name |
+| 7 | Remove Course | Delete courses |
+| 8 | View Courses | Display all available courses |
+| 17 | Search Course | Find courses by name or code |
+| 18 | Sort Courses | Alphabetical sorting |
+| 16 | View Students in Course | Display students enrolled in a course |
+| 22 | Most Popular Courses | Display courses with highest enrollments |
+
+### Enrollment & Grades
+
+| Option | Feature | Description |
+|--------|---------|-------------|
+| 9 | Enroll Student | Register student in a course |
+| 10 | Record Grade | Assign grades (0-100) |
+| 14 | Unenroll Student | Remove student from course |
+| 19 | Calculate GPA | Compute student's average grade |
+
+### System Utilities
+
+| Option | Feature | Description |
+|--------|---------|-------------|
+| 13 | View All Data | Complete system report |
+| 20 | System Statistics | Dashboard with totals and averages |
+| 0 | Save and Exit | Auto-save to CSV |
 
 ---
 
-## 📂 Project Structure
+## Tech Stack
 
-The project follows a modular package structure to ensure high maintainability:
+| Technology | Purpose |
+|------------|---------|
+| Java SE 17+ | Core programming language |
+| Multi-Layered Architecture | Separation of responsibilities |
+| Service / Repository Pattern | Business and data layer separation |
+| CSV File Storage | Lightweight data persistence |
+| JDK Tools | Compilation and execution |
 
-```text
-src/
-├── main/               # Application entry point and UI orchestrator
-│   └── Main.java       # Handles the terminal menu and user interactions
-├── model/              # Domain Entity classes (POJOs)
-│   ├── Student.java    # Core student data and enrollment list
-│   ├── Course.java     # Academic subject definitions
-│   └── Enrollment.java # Join entity linking Student to Course with Grades
-├── service/            # Business Logic Layer
-│   ├── StudentService.java     # Logic for searching, sorting, and top students
-│   ├── CourseService.java      # Course-specific logic
-│   └── EnrollmentService.java  # The "Engine" merging students and courses
-├── repository/         # Data Access Layer (In-memory Collections)
-│   ├── StudentRepository.java  # Storage for Student objects
-│   └── CourseRepository.java   # Storage for Course objects
-└── util/               # Cross-cutting Utilities
-    ├── DataManager.java        # IO logic for CSV loading/saving
-    └── InputHelper.java        # Robust terminal input validation
+---
+
+## Project Architecture
+
+The system follows a multi-layered architecture to maintain modularity and scalability.
+
+```
+Presentation Layer (CLI)
+         │
+         ▼
+Service Layer (Business Logic)
+         │
+         ▼
+Repository Layer (Data Access)
+         │
+         ▼
+CSV Storage
+```
+
+### Layer Responsibilities
+
+| Layer | Responsibility |
+|-------|----------------|
+| Presentation | User interaction via menu-driven CLI |
+| Service | Business logic and validation |
+| Repository | Data storage and CRUD operations |
+| Model | Domain entities (Student, Course, Enrollment) |
+| Utility | File operations and input handling |
+
+---
+
+## Project Structure
+
+```
+Final Student_Management_System/
+├── main/
+│   └── Main.java
+│
+├── model/
+│   ├── Student.java
+│   ├── Course.java
+│   └── Enrollment.java
+│
+├── repository/
+│   ├── IStudentRepository.java
+│   ├── StudentRepository.java
+│   ├── ICourseRepository.java
+│   └── CourseRepository.java
+│
+├── service/
+│   ├── IStudentService.java
+│   ├── StudentService.java
+│   ├── ICourseService.java
+│   ├── CourseService.java
+│   ├── IEnrollmentService.java
+│   └── EnrollmentService.java
+│
+├── util/
+│   ├── DataManager.java
+│   └── InputHelper.java
+│
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-## 🏗 System Architecture
+## Installation
 
-The application implements a **unidirectional data flow** to keep the codebase clean and easy to debug.
+### Prerequisites
 
-### 📊 Logical Flow Diagram
+- Java JDK 17 or higher
 
-```mermaid
-graph TD
-    UI[User Interface - Main.java] --> Services[Service Layer - Business Logic]
-    Services --> Repos[Repository Layer - In-Memory Cache]
-    Services --> Models[Domain Models - Entities]
-    Repos --> CSV[(school_data.csv)]
-
-    subgraph "Execution Layer"
-    UI
-    end
-
-    subgraph "Core Logic"
-    Services
-    Models
-    end
-
-    subgraph "Data Layer"
-    Repos
-    CSV
-    end
+Check installation:
+```bash
+java -version
 ```
 
-### 🧱 Architectural View (ASCII)
-
-```text
-  [ User ]
-     |
-     v
-[ Main Class ] <---- (Orchestration)
-     |
-     +----[ Services ] ----> [ Models ]
-              |                  ^
-              v                  |
-       [ Repositories ] ---------+
-              |
-              v
-      [ school_data.csv ]
-```
-
----
-
-## ⚙️ How to Run
-
-### 1. Prerequisites
-
-- **JDK 17** or higher installed on your system.
-- Check version with: `java -version`
-
-### 2. Compilation
-
-Compile all packages from the project's root directory:
+### Compile the project
 
 ```bash
 javac -d bin main/*.java model/*.java repository/*.java service/*.java util/*.java
 ```
 
-### 3. Execution
-
-Launch the application by pointing to the main class:
+### Run the application
 
 ```bash
 java -cp bin main.Main
@@ -158,83 +169,153 @@ java -cp bin main.Main
 
 ---
 
-## 💡 Sample Usage & Code Snippets
+## Usage
 
-### Terminal Interface Example
+When the application starts, a menu-driven interface will appear.
 
-```text
---- Student Management System ---
-Choose an option: 1
+### Main Menu
+
+```
+--- Student Management System (Refactored) ---
+[Students]
+1. Add Student        2. View Students        3. Remove Student
+4. Update Student     11. Search Student      12. Sort Students
+15. View Student Courses   24. View Failed Students
+
+[Courses]
+5. Add Course         6. Update Course        7. Remove Course
+8. View Courses       17. Search Course       18. Sort Courses
+16. View Students in Course   22. Most Popular Courses
+
+[Enrollment & Grades]
+9. Enroll Student     10. Record Grade        14. Unenroll Student
+19. Calculate GPA     21. Top Students
+
+[System]
+13. View All Data     20. System Statistics
+
+0. Save and Exit
+```
+
+### Example Operations
+
+**Add a Student**
+```
 Enter Student ID: 202401
 Enter Name: Alex Rivers
 Success: Student added.
+```
 
-Choose an option: 9
+**Add a Course**
+```
+Enter Course Code: 101
+Available types: Math, Physics, Chemistry, Biology, Computer Science
+Enter Course Name: Math
+Success: Course added.
+```
+
+**Enroll Student**
+```
 Enter Student ID: 202401
-Enter Course Code: CS101
-Success: Enrolled.
+Enter Course Code: 101
+Success: Student enrolled.
 ```
 
-### Key Operation: Enrollment Logic (Java)
-
-The `EnrollmentService` ensures that business rules (like preventing duplicate enrollment) are enforced:
-
-```java
-// Simplified internal logic from EnrollmentService.java
-public void enrollStudentInCourse(int studentId, String courseCode) {
-    Student student = studentService.getById(studentId);
-    Course course = courseService.getByCode(courseCode);
-
-    // Prevent duplicate enrollment
-    boolean exists = student.getEnrollments().stream()
-            .anyMatch(e -> e.getCourse().equals(course));
-
-    if (!exists) {
-        Enrollment enrollment = new Enrollment(student, course);
-        student.addEnrollment(enrollment);
-    }
-}
+**Record Grade**
 ```
-
-### Key Operation: GPA Calculation
-
-```java
-// Grading logic
-public double calculateGPA(int studentId) {
-    Student student = studentService.getById(studentId);
-    return student.getEnrollments().stream()
-            .mapToDouble(Enrollment::getGrade)
-            .average()
-            .orElse(0.0);
-}
+Enter Student ID: 202401
+Enter Course Code: 101
+Enter Grade (0-100): 85
+Success: Grade recorded.
 ```
 
 ---
 
-## 🤝 Contribution Guidelines
+## Validation & Error Handling
 
-We welcome contributions to improve the system's logic or UI!
+The system includes strong validation rules.
 
-1. **Fork** the repository.
-2. **Create** your feature branch (`git checkout -b feature/NewFeature`).
-3. **Commit** your changes (`git commit -m 'Add NewFeature'`).
-4. **Push** to the branch (`git push origin feature/NewFeature`).
-5. **Open** a Pull Request.
+| Field | Validation |
+|-------|------------|
+| Student ID | Must be positive and unique |
+| Student Name | 3-50 alphabetic characters |
+| Course Code | Numeric and unique |
+| Course Name | Valid predefined course (math, physics, chemistry, biology, computer science) |
+| Grade | Value between 0-100 |
 
----
+Error handling includes:
 
-## ⚖️ License
-
-Distributed under the **MIT License**. See settings for more details.
-
----
-
-## 📧 Contact Information
-
-**Developer**: Mahmoud Olaim  
-**GitHub**: [mahmoudolaim682](https://github.com/mahmoudolaim682)  
-**Project Link**: [Student Management System](https://github.com/mahmoudolaim682-source/Final-Student_Management_System)
+- Input validation
+- User-friendly error messages
+- Duplicate prevention
+- Confirmation prompts for deletion
 
 ---
 
-_Generated with ❤️ for the Java Developer Community._
+## Data Storage
+
+The system stores data in a CSV file.
+
+### Example Format
+
+```csv
+COURSE;101;math
+COURSE;102;physics
+STUDENT;202401;Alex Rivers;101:85.5,102:90
+```
+
+### Data Behavior
+
+- Loaded automatically at startup
+- Saved automatically on exit
+
+---
+
+## Environment Variables
+
+No environment variables are required. The system uses:
+
+- `school_data.csv` - Auto-created in project root for data persistence
+
+---
+
+## Future Improvements
+
+Possible future enhancements:
+
+- Add database support (MySQL / PostgreSQL)
+- Implement REST API version
+- Add Graphical User Interface (GUI)
+- Implement JUnit testing
+- Export reports to PDF / Excel
+- Add authentication system
+
+---
+
+## Contributing
+
+Contributions are welcome.
+
+Steps to contribute:
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m "Add new feature"`
+4. Push to your branch: `git push origin feature-name`
+5. Open a Pull Request
+
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Contact
+
+| | |
+|---|---|
+| Developer | Mahmoud Olaim |
+| GitHub | [mahmoudolaim682](https://github.com/mahmoudolaim682) |
+| Project | [Student Management System](https://github.com/mahmoudolaim682-source/Final-Student_Management_System) |
